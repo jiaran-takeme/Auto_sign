@@ -3,8 +3,8 @@
 
 此程序专为郑州大学健康打卡设计
 
-selenuim
-* pip  install selenuim
+selenium
+* pip  install selenium
 
 webdriver
 * http://chromedriver.storage.googleapis.com/index.html
