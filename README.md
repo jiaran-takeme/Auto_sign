@@ -9,6 +9,16 @@ selenium
 webdriver
 * http://chromedriver.storage.googleapis.com/index.html
 
+## 2022.1.17 更新
+* 适配了新版本的selenium语法
+示例
+```python
+browser.find_element_by_xpath('/html/body/form/div/div[11]/div[3]/div[4]/span').click()
+```
+改为
+```python
+browser.find_element(By.XPATH,'/html/body/form/div/div[11]/div[3]/div[4]/span').click()
+```
 ## 2021.9.24 更新
 * 修改了错误的xpath
 ```python
