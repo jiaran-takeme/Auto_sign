@@ -41,15 +41,15 @@ try:
     except:
         pass
 
-    browser.find_element(By.__name__,"uid").send_keys("学号")  # 学号
-    browser.find_element(By.__name__,"upw").send_keys("密码\n")  # 密码
+    browser.find_element(By.NAME,"uid").send_keys("学号")  # 学号
+    browser.find_element(By.NAME,"upw").send_keys("密码\n")  # 密码
 
     time.sleep(1)
 
     browser.switch_to.frame('zzj_top_6s')
     browser.find_element(By.XPATH,'/html/body/form/div/div[11]/div[3]/div[4]/span').click()
 
-    select = Select(browser.find_element(By.__name__,"myvs_13"))
+    select = Select(browser.find_element(By.NAME,"myvs_13"))
     select.select_by_value("g")  # "g" 绿码,"r" 红码,"y" 黄码
     browser.find_element(By.XPATH,'//*[@id="bak_0"]/div[7]/div[4]').click()
     a = browser.find_element(By.XPATH,'//*[@id="bak_0"]/div[2]/div[2]/div[2]/div[2]').text
