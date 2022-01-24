@@ -3,6 +3,9 @@
 
 此程序专为郑州大学健康打卡设计
 
+B站视频教程链接
+* https://www.bilibili.com/video/BV1rg411M75
+
 selenium
 * pip  install selenium
 
