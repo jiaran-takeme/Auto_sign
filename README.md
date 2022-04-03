@@ -12,6 +12,9 @@ selenium
 webdriver
 * http://chromedriver.storage.googleapis.com/index.html
 
+## 2022.4.4 更新
+* 平台对接了郑好办平台，健康码选择功能已弃用
+
 ## 2022.1.17 更新
 * 适配了新版本的selenium语法
 示例
