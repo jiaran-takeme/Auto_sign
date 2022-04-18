@@ -35,9 +35,7 @@ try:
 
     try:
         browser.find_element(By.XPATH,'//*[@id="details-button"]').click()
-        #browser.find_element_by_xpath('//*[@id="details-button"]').click()  # 不安全才用
         browser.find_element(By.XPATH, '//*[@id="proceed-link"]').click()
-        #browser.find_element_by_xpath('//*[@id="proceed-link"]').click() # 不安全才用
     except:
         pass
 
@@ -48,20 +46,26 @@ try:
 
     browser.switch_to.frame('zzj_top_6s')
     browser.find_element(By.XPATH,'/html/body/form/div/div[11]/div[3]/div[4]/span').click()
+    time.sleep(3)
 
 #     select = Select(browser.find_element(By.NAME,"myvs_13"))
 #     select.select_by_value("g")  # "g" 绿码,"r" 红码,"y" 黄码 (已弃用)
-    browser.find_element(By.XPATH,'//*[@id="bak_0"]/div[7]/div[4]').click()
+    try:
+        browser.find_element_by_xpath('// *[ @ id = "btn416a"]').click()
+    except:
+        browser.find_element_by_xpath('// *[ @ id = "btn416b"]').click()
+    
     a = browser.find_element(By.XPATH,'//*[@id="bak_0"]/div[2]/div[2]/div[2]/div[2]').text
     result = "success"
-
+    print(result)
     browser.quit()
 
 except:
     result = "error"  # 异常处理
     print(result)
-
-    # 写入日志
+    browser.quit()
+   
+# 写入日志
 with open("打卡日志.txt", 'a') as f:
     f.write(f"{nowt} {result}\n")
     f.close()
