@@ -12,6 +12,9 @@ selenium
 webdriver
 * http://chromedriver.storage.googleapis.com/index.html
 
+## 2022.4.18 更新
+* 优化了代码逻辑，另外我求求学校能不能别再改这网站了，就个健康打卡，三天两头改，xpath改几次了orz
+
 ## 2022.4.4 更新
 * 平台对接了郑好办平台，健康码选择功能已弃用
 
