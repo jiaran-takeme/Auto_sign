@@ -51,9 +51,9 @@ try:
 #     select = Select(browser.find_element(By.NAME,"myvs_13"))
 #     select.select_by_value("g")  # "g" 绿码,"r" 红码,"y" 黄码 (已弃用)
     try:
-        browser.find_element_by_xpath('// *[ @ id = "btn416a"]').click()
+        browser.find_element_by_xpath('//*[@id="btn416a"]').click()
     except:
-        browser.find_element_by_xpath('// *[ @ id = "btn416b"]').click()
+        browser.find_element_by_xpath('//*[@id="btn416b"]').click()
     
     a = browser.find_element(By.XPATH,'//*[@id="bak_0"]/div[2]/div[2]/div[2]/div[2]').text
     result = "success"
