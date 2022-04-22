@@ -46,7 +46,7 @@ try:
 
     browser.switch_to.frame('zzj_top_6s')
     browser.find_element(By.XPATH,'/html/body/form/div/div[11]/div[3]/div[4]/span').click()
-    time.sleep(3)
+    time.sleep(10)
 
 #     select = Select(browser.find_element(By.NAME,"myvs_13"))
 #     select.select_by_value("g")  # "g" 绿码,"r" 红码,"y" 黄码 (已弃用)
