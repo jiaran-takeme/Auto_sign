@@ -32,6 +32,7 @@ try:
 
     browser.implicitly_wait(10)  # 隐式等待
     browser.get("https://jksb.v.zzu.edu.cn/vls6sss/zzujksb.dll/first0")
+    print('打开网站了！')
 
     try:
         browser.find_element(By.XPATH,'//*[@id="details-button"]').click()
@@ -41,19 +42,23 @@ try:
 
     browser.find_element(By.NAME,"uid").send_keys("学号")  # 学号
     browser.find_element(By.NAME,"upw").send_keys("密码\n")  # 密码
-
+    print('登陆上去了！')
+    
     time.sleep(1)
 
     browser.switch_to.frame('zzj_top_6s')
     browser.find_element(By.XPATH,'/html/body/form/div/div[11]/div[3]/div[4]/span').click()
-    time.sleep(10)
+    print('打开打卡页面了！')
+    time.sleep(6)
 
 #     select = Select(browser.find_element(By.NAME,"myvs_13"))
 #     select.select_by_value("g")  # "g" 绿码,"r" 红码,"y" 黄码 (已弃用)
     try:
         browser.find_element_by_xpath('//*[@id="btn416a"]').click()
+        print('从上面打的')
     except:
         browser.find_element_by_xpath('//*[@id="btn416b"]').click()
+        print('从下面打的')
     
     a = browser.find_element(By.XPATH,'//*[@id="bak_0"]/div[2]/div[2]/div[2]/div[2]').text
     result = "success"
