@@ -12,6 +12,18 @@ selenium
 webdriver
 * http://chromedriver.storage.googleapis.com/index.html
 
+## 2022.9.5 更新
+* 增加了验证码自动识别及填入功能
+```python
+    mgCode = browser.find_element(By.XPATH, '//*[@id="bak_0"]/img')  # 定位验证码
+    imgCode.screenshot("code.png")  # 下载图片
+    ocr = ddddocr.DdddOcr()  # 利用ddddocr识别验证码
+    with open("code.png", "rb") as f:
+        image = f.read()
+    codeResult = ocr.classification(image)  # 返回验证码识别结果
+    browser.find_element(By.NAME, 'myvs_94c').send_keys(codeResult)  # 输入验证码
+```
+
 ## 2022.6.20 更新
 * 增加了便于定位问题的print语句
 
