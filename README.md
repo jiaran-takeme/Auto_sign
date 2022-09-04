@@ -15,7 +15,7 @@ webdriver
 ## 2022.9.5 更新
 * 增加了验证码自动识别及填入
 ```python
-    mgCode = browser.find_element(By.XPATH, '//*[@id="bak_0"]/img')  # 定位验证码
+    imgCode = browser.find_element(By.XPATH, '//*[@id="bak_0"]/img')  # 定位验证码
     imgCode.screenshot("code.png")  # 下载图片
     ocr = ddddocr.DdddOcr()  # 利用ddddocr识别验证码
     
