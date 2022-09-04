@@ -6,14 +6,14 @@ from email.mime.text import MIMEText
 from email.utils import formataddr
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-
 from selenium.webdriver.support.ui import Select
+import ddddocr
 
 now = time.localtime() # 时间
 nowt = time.strftime("%Y-%m-%d %H:%M:%S", now)  # 设定时间格式
 
-def send_email():
-    msg = MIMEText(result, 'html', 'utf-8')  # 正文
+def send_email(content):
+    msg = MIMEText(content, 'html', 'utf-8')  # 正文
     msg['From'] = formataddr(["自动打卡","发送的邮箱"])  # 发信人
     msg['Subject'] = "自动打卡"  # 标题
 
@@ -53,26 +53,37 @@ try:
 
 #     select = Select(browser.find_element(By.NAME,"myvs_13"))
 #     select.select_by_value("g")  # "g" 绿码,"r" 红码,"y" 黄码 (已弃用)
+    
+    imgCode = browser.find_element(By.XPATH, '//*[@id="bak_0"]/img') # 定位验证码
+    imgCode.screenshot("code.png")  # 下载图片
+    ocr = ddddocr.DdddOcr()  # 利用ddddocr识别验证码
+    with open("code.png", "rb") as f:
+        image = f.read()
+    codeResult = ocr.classification(image) # 返回验证码识别结果
+    browser.find_element(By.NAME, 'myvs_94c').send_keys(codeResult)  # 输入验证码
+
+    
     try:
-        browser.find_element(By.XPATH, '//*[@id="btn416a"]').click()
+        browser.find_element(By.ID, 'btn416a').click()
         print('从上面打的')
     except:
-        browser.find_element(By.XPATH, '//*[@id="btn416b"]').click()
+        browser.find_element(By.ID, 'btn416b').click()
         print('从下面打的')
     
     a = browser.find_element(By.XPATH,'//*[@id="bak_0"]/div[2]/div[2]/div[2]/div[2]').text
-    result = "success"
-    print(result)
+    result = "success\n"
+    print(result + a)
     browser.quit()
+    send_email(result + a)  # 发送邮件
 
 except:
-    result = "error"  # 异常处理
+    result = "error\n"  # 异常处理
     print(result)
     browser.quit()
+    send_email(result)  # 发送邮件
    
 # 写入日志
 with open("打卡日志.txt", 'a') as f:
     f.write(f"{nowt} {result}\n")
     f.close()
-    # 发送邮件
-send_email()
+
