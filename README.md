@@ -6,8 +6,10 @@
 B站视频教程链接
 * https://www.bilibili.com/video/BV1rg411M75a
 
-selenium
-* pip  install selenium
+
+依赖
+* pip install selenium
+* pip install ddddocr
 
 webdriver
 * http://chromedriver.storage.googleapis.com/index.html
