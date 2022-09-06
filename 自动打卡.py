@@ -8,6 +8,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import Select
 import ddddocr
+import character2number as c2n
 
 now = time.localtime() # 时间
 nowt = time.strftime("%Y-%m-%d %H:%M:%S", now)  # 设定时间格式
@@ -59,7 +60,7 @@ try:
     ocr = ddddocr.DdddOcr()  # 利用ddddocr识别验证码
     with open("code.png", "rb") as f:
         image = f.read()
-    codeResult = ocr.classification(image) # 返回验证码识别结果
+    codeResult = c2n.c2n(ocr.classification(image)) # 返回验证码经过转换的识别结果
     browser.find_element(By.NAME, 'myvs_94c').send_keys(codeResult)  # 输入验证码
 
     
