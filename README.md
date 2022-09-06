@@ -14,6 +14,10 @@ B站视频教程链接
 webdriver
 * http://chromedriver.storage.googleapis.com/index.html
 
+## 2020.9.6 更新
+* 增加了对此类验证码的识别功能
+![code](https://user-images.githubusercontent.com/87650568/188530439-6623ae05-1eee-4fc6-b1b1-9f037a751038.png)
+
 ## 2022.9.5 更新
 * 增加了验证码自动识别及填入
 ```python
