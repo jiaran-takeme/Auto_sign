@@ -9,6 +9,7 @@ def c2n(charactersOfCode):
                 character = str(numbers.index(number))
                 numbersOfCode.append(character)
                 switch = True
+                break
         if not switch:
             numbersOfCode.append(character)
     return "".join(numbersOfCode)
