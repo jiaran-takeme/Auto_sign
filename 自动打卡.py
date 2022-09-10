@@ -55,13 +55,13 @@ try:
 #     select = Select(browser.find_element(By.NAME,"myvs_13"))
 #     select.select_by_value("g")  # "g" 绿码,"r" 红码,"y" 黄码 (已弃用)
     
-    imgCode = browser.find_element(By.XPATH, '//*[@id="bak_0"]/img') # 定位验证码
-    imgCode.screenshot("code.png")  # 下载图片
-    ocr = ddddocr.DdddOcr()  # 利用ddddocr识别验证码
-    with open("code.png", "rb") as f:
-        image = f.read()
-    codeResult = c2n.c2n(ocr.classification(image)) # 返回验证码经过转换的识别结果
-    browser.find_element(By.NAME, 'myvs_94c').send_keys(codeResult)  # 输入验证码
+#     imgCode = browser.find_element(By.XPATH, '//*[@id="bak_0"]/img') # 定位验证码
+#     imgCode.screenshot("code.png")  # 下载图片
+#     ocr = ddddocr.DdddOcr()  # 利用ddddocr识别验证码
+#     with open("code.png", "rb") as f:
+#         image = f.read()
+#     codeResult = c2n.c2n(ocr.classification(image)) # 返回验证码经过转换的识别结果
+#     browser.find_element(By.NAME, 'myvs_94c').send_keys(codeResult)  # 输入验证码
 
     
     try:
@@ -72,13 +72,13 @@ try:
         print('从下面打的')
     
     a = browser.find_element(By.XPATH,'//*[@id="bak_0"]/div[2]/div[2]/div[2]/div[2]').text
-    result = "success\n"
+    result = "success"
     print(result + a)
     browser.quit()
     send_email(result + a)  # 发送邮件
 
 except:
-    result = "error\n"  # 异常处理
+    result = "error"  # 异常处理
     print(result)
     browser.quit()
     send_email(result)  # 发送邮件
