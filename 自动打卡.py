@@ -7,8 +7,6 @@ from email.utils import formataddr
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import Select
-import ddddocr
-import character2number as c2n
 
 now = time.localtime() # 时间
 nowt = time.strftime("%Y-%m-%d %H:%M:%S", now)  # 设定时间格式
@@ -51,18 +49,6 @@ try:
     browser.find_element(By.XPATH,'/html/body/form/div/div[11]/div[3]/div[4]/span').click()
     print('打开打卡页面了！')
     time.sleep(6)
-
-#     select = Select(browser.find_element(By.NAME,"myvs_13"))
-#     select.select_by_value("g")  # "g" 绿码,"r" 红码,"y" 黄码 (已弃用)
-    
-#     imgCode = browser.find_element(By.XPATH, '//*[@id="bak_0"]/img') # 定位验证码
-#     imgCode.screenshot("code.png")  # 下载图片
-#     ocr = ddddocr.DdddOcr()  # 利用ddddocr识别验证码
-#     with open("code.png", "rb") as f:
-#         image = f.read()
-#     codeResult = c2n.c2n(ocr.classification(image)) # 返回验证码经过转换的识别结果
-#     browser.find_element(By.NAME, 'myvs_94c').send_keys(codeResult)  # 输入验证码
-
     
     try:
         browser.find_element(By.ID, 'btn416a').click()
